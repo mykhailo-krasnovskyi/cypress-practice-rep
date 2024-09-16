@@ -11,7 +11,6 @@ class HomePage {
                 username: Cypress.env('AUTH_USERNAME'),
                 password: Cypress.env('AUTH_PASSWORD')
             },
-            timeout:0
 
         });
     }

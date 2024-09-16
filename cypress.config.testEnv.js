@@ -3,11 +3,12 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     chromeWebSecurity: false,
-    baseUrl: 'https://qauto.forstudy.space/',
+    baseUrl: 'https://qauto2.forstudy.space/',
     retries: {
       runMode: 3,
     },
     env: {
+      BASE_URL: 'https://qauto.forstudy.space/',
       AUTH_USERNAME: 'guest',
       AUTH_PASSWORD: 'welcome2qauto'
     },
