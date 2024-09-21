@@ -1,5 +1,6 @@
 import HomePage from "../../../page-objects/pages/HomePage";
 import SignInForm from "../../../page-objects/components/forms/SignInForm";
+import testData from "../../fixtures/credentials.json"
 
 describe('Hillel Auto Sign In Form', () => {
 
@@ -8,9 +9,13 @@ describe('Hillel Auto Sign In Form', () => {
         HomePage.openSignInForm();
     });
 
-    it.only('Successful login',  () => {
+    it.only('Successful login', () => {
 
-        SignInForm.loginWithCredentials('michael.krasnovskyi+testUser1@gmail.com', 'ZSgeVQhuU3qkvlG');
+        // cy.fixture('credentials.json').then((userData) => {
+        //     SignInForm.loginWithCredentials(userData.users.userWithCars.email, userData.users.userWithCars.password);
+        // });
+        SignInForm.loginWithCredentials(testData.users.userWithCars.email, testData.users.userWithCars.password);
+
         cy.get('h1').should('have.text', 'Garage');
     })
 
@@ -34,5 +39,6 @@ describe('Hillel Auto Sign In Form', () => {
     it('Login with incorrect email and password', () => {
         SignInForm.loginWithCredentials('michael.krasnovskyi+tes4343431@gmail.com', '434343');
         SignInForm.loginErrorMessage.should('have.text', 'Wrong email or password');
+        cy.get('.car_name').eq(0);
     })
 })

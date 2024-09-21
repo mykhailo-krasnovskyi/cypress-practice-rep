@@ -1,9 +1,10 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: "ap1g7j",
   e2e: {
     chromeWebSecurity: false,
-    baseUrl: 'https://qauto.forstudy.space/',
+    baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space/',
     retries: {
       runMode: 3,
     },
